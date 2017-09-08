@@ -1,0 +1,18 @@
+{
+  "name": "fhninstant",
+  "authors": [
+    "Nav Saini <navdeep@mailbox.org>"
+  ],
+  "description": "HackerNews Instant",
+  "main": "index.html",
+  "license": "UNLICENSED",
+  "homepage": "hninstant.navdeep.io",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

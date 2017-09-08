@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HN Instant</title>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <input type="text" name="search_hn" id="search_hn" placeholder="Search Hacker News">
+        </div>
+        <div>
+            <!-- put the iframe or the alternative here -->
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script src="bower_components/axios/dist/axios.min.js"></script>
+    <script>
+        // all the vue.js voodoo here
+        let $ = axios;
+        let data = $.get('https://news.ycombinator.com')
+    </script>
+</body>
+
+</html>
