@@ -1,30 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>HN Instant</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello Bulma!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.1/css/bulma.min.css">
 </head>
 
 <body>
-    <div id="app">
-        <div>
-            <input type="text" name="search_hn" id="search_hn" placeholder="Search Hacker News">
+    <section class="section">
+        <div class="container">
+            <h1 class="title">
+                Hello World
+            </h1>
+            <p class="subtitle">
+                My first website with <strong>Bulma</strong>!
+            </p>
         </div>
-        <div>
-            <!-- put the iframe or the alternative here -->
-        </div>
-    </div>
-
+    </section>
     <script src="https://unpkg.com/vue"></script>
     <script src="bower_components/axios/dist/axios.min.js"></script>
-    <script>
-        // all the vue.js voodoo here
-        let $ = axios;
-        let data = $.get('https://news.ycombinator.com')
-    </script>
 </body>
 
 </html>
