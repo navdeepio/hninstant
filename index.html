@@ -23,14 +23,20 @@
                 </div>
             </div>
         </div>
-        <div class="container content">
+        <div class="box content">
             <div class="columns">
-                <iframe class="column" src="http://www.kalzumeus.com/2017/09/09/identity-theft-credit-reports/" frameborder="0"></iframe>
+                <iframe class="column" style="height:80vh" src="http://www.kalzumeus.com/2017/09/09/identity-theft-credit-reports/" frameborder="0"></iframe>
             </div>
         </div>
     </section>
     <script src="https://unpkg.com/vue"></script>
     <script src="bower_components/axios/dist/axios.min.js"></script>
+    <script>
+        let $ = axios;
+        // use hn algolia api
+        $.get('http://hn.algolia.com/api/v1/search')
+        // this is the base url
+    </script>
     <script>
         // vue code here
     </script>
