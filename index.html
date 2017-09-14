@@ -21,7 +21,7 @@
             </h1>
           </div>
           <div class="column auto">
-            <input type="text" class="input is-medium" v-model="query" v-on:change="changeHandler" placeholder="Search">
+            <input type="text" class="input is-medium" v-model="query" placeholder="Search">
           </div>
         </div>
       </div>
@@ -30,23 +30,24 @@
   </section>
   <script src="bower_components/axios/dist/axios.min.js"></script>
   <script>
-    let $ = axios; // use hn algolia api $.get('http://hn.algolia.com/api/v1/search') // this is the base url // vue code here
+    // use hn algolia api $.get('http://hn.algolia.com/api/v1/search') // this is the base url // vue code here
     // join the vue element with 
     var app = new Vue({
       el: '#app',
       data: {
         url: 'https://vuejs.org',
-        query: 'Vue'
+        query: ''
       },
-      methods: {
-        changeHandler: (event) => {
-          $.get('http://hn.algolia.com/api/v1/search', {
+      watch: {
+        query: (val) => {
+          axios.get('http://hn.algolia.com/api/v1/search', {
             params: {
-              query
+              query: val
             }
           }).then(response => {
             // response has an array of results
-            url = response.hits[0].url;
+            console.log(response.data.hits[0].url)
+            this.url = response.data.hits[0].url;
           }).catch(err => {
             console.log(err)
           })
