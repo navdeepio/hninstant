@@ -11,7 +11,7 @@
 
 <body>
     <section class="section">
-        <div class="container content">
+        <div class="container content" id="app">
             <div class="columns">
                 <div class="column is-narrow">
                     <h1 class="title">
@@ -22,12 +22,10 @@
                     <input type="text" class="input is-large" placeholder="Search">
                 </div>
             </div>
-        </div>
-        <div class="box content">
-            <div class="columns">
-                <iframe class="column" style="height:80vh" src="" frameborder="0"></iframe>
-            </div>
-        </div>
+            <div class="box content">
+                <div class="columns">
+                    <iframe class="column" style="height:80vh" v-bind:src="url" frameborder="0"></iframe>
+                </div>
     </section>
     <script src="https://unpkg.com/vue"></script>
     <script src="bower_components/axios/dist/axios.min.js"></script>
@@ -40,6 +38,9 @@
     <script>
         // vue code here
         // join the vue element with
+        var app = new Vue({
+            el: '#app'
+        });
     </script>
 </body>
 
