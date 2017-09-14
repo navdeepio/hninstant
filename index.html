@@ -2,46 +2,48 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>HN Instant</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.1/css/bulma.min.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HN Instant</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.1/css/bulma.min.css">
+  <script src="https://unpkg.com/vue"></script>
 </head>
 
 <body>
-    <section class="section">
-        <div class="container content" id="app">
-            <div class="columns">
-                <div class="column is-narrow">
-                    <h1 class="title">
-                        HN Instant
-                    </h1>
-                </div>
-                <div class="column auto">
-                    <input type="text" class="input is-large" placeholder="Search">
-                </div>
-            </div>
-            <div class="box content">
-                <div class="columns">
-                    <iframe class="column" style="height:80vh" v-bind:src="url" frameborder="0"></iframe>
-                </div>
-    </section>
-    <script src="https://unpkg.com/vue"></script>
-    <script src="bower_components/axios/dist/axios.min.js"></script>
-    <script>
-        let $ = axios;
-        // use hn algolia api
-        $.get('http://hn.algolia.com/api/v1/search')
-        // this is the base url
-    </script>
-    <script>
-        // vue code here
-        // join the vue element with
-        var app = new Vue({
-            el: '#app'
-        });
-    </script>
+  <section class="section">
+    <div class="container content" id="app">
+      <div class="columns">
+        <div class="column is-narrow">
+          <h1 class="title">
+            HN Instant
+          </h1>
+        </div>
+        <div class="column auto">
+          <input type="text" class="input is-large" placeholder="Search">
+        </div>
+      </div>
+      <div class="box content">
+        <div class="columns">
+          <iframe class="column" style="height:80vh" v-bind:src="url" frameborder="0"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="bower_components/axios/dist/axios.min.js"></script>
+  <script>
+    let $ = axios;
+    // use hn algolia api
+    $.get('http://hn.algolia.com/api/v1/search')
+    // this is the base url
+  </script>
+  <script>
+    // vue code here
+    // join the vue element with
+    var app = new Vue({
+      el: '#app'
+    });
+  </script>
 </body>
 
 </html>
