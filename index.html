@@ -12,22 +12,20 @@
 
 <body>
   <section class="section">
-    <div class="container content" id="app">
-      <div class="columns">
-        <div class="column is-narrow">
-          <h1 class="title">
-            HN Instant
-          </h1>
-        </div>
-        <div class="column auto">
-          <input type="text" class="input is-large" placeholder="Search">
-        </div>
-      </div>
-      <div class="box content">
+    <div id="app">
+      <div class="container content">
         <div class="columns">
-          <iframe class="column" style="height:80vh" v-bind:src="url" frameborder="0"></iframe>
+          <div class="column is-narrow">
+            <h1 class="title">
+              HN Instant
+            </h1>
+          </div>
+          <div class="column auto">
+            <input type="text" class="input is-large" placeholder="Search">
+          </div>
         </div>
       </div>
+      <iframe style="height:80vh; width: 100%" v-bind:src="url" frameborder="0"></iframe>
     </div>
   </section>
   <script src="bower_components/axios/dist/axios.min.js"></script>
@@ -41,7 +39,10 @@
     // vue code here
     // join the vue element with
     var app = new Vue({
-      el: '#app'
+      el: '#app',
+      data: {
+        url: 'https://vuejs.org'
+      }
     });
   </script>
 </body>
