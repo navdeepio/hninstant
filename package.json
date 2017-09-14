@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "hacker-news-api": "^2.0.0"
+  }
+}
