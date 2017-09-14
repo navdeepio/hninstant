@@ -30,26 +30,28 @@
   </section>
   <script src="bower_components/axios/dist/axios.min.js"></script>
   <script>
-    // use hn algolia api $.get('http://hn.algolia.com/api/v1/search') // this is the base url // vue code here
-    // join the vue element with 
+    'use strict';
     var app = new Vue({
       el: '#app',
       data: {
-        url: 'https://vuejs.org',
-        query: ''
+        query: '',
+        url: 'https://vuejs.org'
       },
       watch: {
-        query: (val) => {
+        query: function (val) {
+          this.fUrl()
+        }
+      },
+      methods: {
+        fUrl: function () {
           axios.get('http://hn.algolia.com/api/v1/search', {
             params: {
-              query: val
+              query: this.query
             }
           }).then(response => {
-            // response has an array of results
-            console.log(response.data.hits[0].url)
-            this.url = response.data.hits[0].url;
+            this.url = response.data.hits[0].url
           }).catch(err => {
-            console.log(err)
+            this.url = 'https://vuejs.org'
           })
         }
       }
