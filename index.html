@@ -25,7 +25,7 @@
           </div>
         </div>
       </div>
-      <iframe style="height:80vh; width: 100%" v-bind:src="url" frameborder="0"></iframe>
+      <iframe style="height:80vh; width: 100%" v-if="!destruct" v-bind:src="url" frameborder="0"></iframe>
     </div>
   </section>
   <script src="bower_components/axios/dist/axios.min.js"></script>
@@ -36,29 +36,35 @@
       el: '#app',
       data: {
         query: '',
-        url: 'https://vuejs.org'
+        url: 'https://vuejs.org',
+        destruct: true
       },
       watch: {
         query: function (val) {
-          this.fUrl()
+          this.act()
         }
       },
       methods: {
-        fUrl: _.debounce(function () {
+        act: _.debounce(function () {
             if (this.query != null) {
               axios.get('http://hn.algolia.com/api/v1/search', {
                 params: {
                   query: this.query
                 }
               }).then(response => {
-                this.url = response.data.hits[0].url
+                let tUrl = response.data.hits[0].url
+                if (this.destruct) {
+                  window.location.href = tUrl
+                } else {
+                  this.url = tUrl
+                }
               }).catch(err => {
                 // do nothing
                 console.log(err)
               })
             }
           },
-          500)
+          200)
       }
     });
   </script>
