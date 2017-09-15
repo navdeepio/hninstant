@@ -29,6 +29,7 @@
     </div>
   </section>
   <script src="bower_components/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
   <script>
     'use strict';
     var app = new Vue({
@@ -43,17 +44,21 @@
         }
       },
       methods: {
-        fUrl: function () {
-          axios.get('http://hn.algolia.com/api/v1/search', {
-            params: {
-              query: this.query
+        fUrl: _.debounce(function () {
+            if (this.query != null) {
+              axios.get('http://hn.algolia.com/api/v1/search', {
+                params: {
+                  query: this.query
+                }
+              }).then(response => {
+                this.url = response.data.hits[0].url
+              }).catch(err => {
+                // do nothing
+                console.log(err)
+              })
             }
-          }).then(response => {
-            this.url = response.data.hits[0].url
-          }).catch(err => {
-            this.url = 'https://vuejs.org'
-          })
-        }
+          },
+          500)
       }
     });
   </script>
