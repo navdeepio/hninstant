@@ -24,7 +24,10 @@
             <input type="text" class="input is-medium" v-model="query" placeholder="Search">
           </div>
           <div class="column is-1">
-            <input type="text" class="input is-medium">
+            <label for="" class="checkbox">
+              <input v-model="overwrite" type="checkbox" title="test title">
+              Overwrite this page
+            </label>
           </div>
         </div>
       </div>
