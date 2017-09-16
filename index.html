@@ -16,22 +16,22 @@
       <div class="container content">
         <div class="columns">
           <div class="column is-narrow">
-            <h1 class="title">
+            <h2 class="title">
               HN Instant
-            </h1>
+            </h2>
           </div>
           <div class="column auto">
             <input type="text" class="input is-medium" v-model="query" placeholder="Search">
           </div>
           <div class="column is-1">
-            <label for="" class="checkbox">
-              <input v-model="overwrite" type="checkbox" title="test title">
-              Overwrite this page
+            <label class="checkbox">
+              <input v-model="iframeMode" type="checkbox" title="test title">
+              Iframe Mode
             </label>
           </div>
         </div>
       </div>
-      <iframe style="height:80vh; width: 100%" v-if="!overwrite" v-bind:src="url" frameborder="0"></iframe>
+      <iframe style="height:80vh; width: 100%" v-if="iframeMode" v-bind:src="url" frameborder="0"></iframe>
     </div>
   </section>
   <script src="bower_components/axios/dist/axios.min.js"></script>
@@ -43,7 +43,7 @@
       data: {
         query: '',
         url: 'https://vuejs.org',
-        overwrite: true
+        iframeMode: false
       },
       watch: {
         query: function (val) {
@@ -59,10 +59,10 @@
                 }
               }).then(response => {
                 let tUrl = response.data.hits[0].url
-                if (this.overwrite) {
-                  window.location.href = tUrl
-                } else {
+                if (this.iframeMode) {
                   this.url = tUrl
+                } else {
+                  window.location.href = tUrl
                 }
               }).catch(err => {
                 // do nothing
