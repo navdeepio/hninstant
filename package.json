@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "hacker-news-api": "^2.0.0"
+    "hacker-news-api": "^2.0.0",
+    "vue-blu": "^0.1.9"
   }
 }
