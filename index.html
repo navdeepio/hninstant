@@ -34,7 +34,6 @@
     </div>
   </section>
   <script src="bower_components/axios/dist/axios.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
   <script>
     'use strict';
     var app = new Vue({
@@ -50,26 +49,25 @@
         }
       },
       methods: {
-        act: _.debounce(function () {
-            if (this.query != null) {
-              axios.get('http://hn.algolia.com/api/v1/search', {
-                params: {
-                  query: this.query
-                }
-              }).then(response => {
-                let tUrl = response.data.hits[0].url
-                if (this.iframeMode) {
-                  this.url = tUrl
-                } else {
-                  window.location.href = tUrl
-                }
-              }).catch(err => {
-                // do nothing
-                console.log(err)
-              })
-            }
-          },
-          200)
+        act: function () {
+          if (this.query != null) {
+            axios.get('http://hn.algolia.com/api/v1/search', {
+              params: {
+                query: this.query
+              }
+            }).then(response => {
+              let tUrl = response.data.hits[0].url
+              if (this.iframeMode) {
+                this.url = tUrl
+              } else {
+                window.location.href = tUrl
+              }
+            }).catch(err => {
+              // do nothing
+              console.log(err)
+            })
+          }
+        }
       }
     });
   </script>
