@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="https://unpkg.com/vue-blu@0.1.9/dist/css/vue-blu.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.4/vue.min.js"></script>
   <script src="https://unpkg.com/vue-blu@0.1.9/dist/vue-blu.min.js"></script>
-  <script></script>
 </head>
 
 <body>
@@ -26,7 +25,10 @@
             <input type="text" class="input is-danger is-medium" v-model="query" placeholder="Search">
           </div>
           <div class="column is-3">
-            <b-switch v-model="iframeMode" type="warning">Nesting with iframes</b-switch>
+            <b-switch v-model="iframeMode" type="warning" style="margin-top: auto">iFrame Mode(Incompatible with most websites)</b-switch>
+          </div>
+          <div class="column is-1">
+              <a href="https://navdeep.io">About</a>
           </div>
         </div>
       </div>
