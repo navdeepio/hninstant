@@ -38,12 +38,13 @@
            Based on the awesome HN search api by Algolia(https://hn.algolia.com/api)
         </p>
         <p>
-            navdeep at mailbox dot org
+            Contact: navdeep at mailbox dot org
         </p>
     </modal>
     </div>
   </section>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
   <script>
     'use strict';
     var app = new Vue({
@@ -60,7 +61,7 @@
         }
       },
       methods: {
-        act: function () {
+        act: _.debounce(function () {
           if (this.query != null) {
             axios.get('https://hn.algolia.com/api/v1/search', {
               params: {
@@ -78,7 +79,7 @@
               console.log(err)
             })
           }
-        },
+        }, 200),
         toggle: function() {
             this.isShow = !this.isShow;
         }
