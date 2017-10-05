@@ -33,13 +33,12 @@
         </div>
       </div>
       <iframe style="height:80vh; width: 100%" v-if="iframeMode" v-bind:src="url" frameborder="0"></iframe>
-    <modal title="about" :width="520" :is-show="isShow" @close="isShow=false">
-        <h3>hn instant</h3>
+    <modal title="HN Instant" :width="520" :show-ok="false" :show-cancel="false" :is-show="isShow" @close="isShow=false">
         <p>
-            all thanks to the awesome hn search api by algolia(https://hn.algolia.com/api)
+           Based on the awesome HN search api by Algolia(https://hn.algolia.com/api)
         </p>
         <p>
-            Contact me at navdeep at mailbox dot org
+            navdeep at mailbox dot org
         </p>
     </modal>
     </div>
