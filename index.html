@@ -28,11 +28,20 @@
             <b-switch v-model="iframeMode" type="warning" style="margin-top: auto">iFrame Mode(Incompatible with most websites)</b-switch>
           </div>
           <div class="column is-1">
-              <a href="https://navdeep.io">About</a>
+              <a @click="toggle">About</a>
           </div>
         </div>
       </div>
       <iframe style="height:80vh; width: 100%" v-if="iframeMode" v-bind:src="url" frameborder="0"></iframe>
+    <modal title="about" :width="520" :is-show="isShow" @close="isShow=false">
+        <h3>hn instant</h3>
+        <p>
+            all thanks to the awesome hn search api by algolia(https://hn.algolia.com/api)
+        </p>
+        <p>
+            Contact me at navdeep at mailbox dot org
+        </p>
+    </modal>
     </div>
   </section>
   <script src="bower_components/axios/dist/axios.min.js"></script>
@@ -43,7 +52,8 @@
       data: {
         query: '',
         url: 'https://vuejs.org',
-        iframeMode: false
+          iframeMode: false,
+          isShow: false
       },
       watch: {
         query: function (val) {
@@ -69,6 +79,9 @@
               console.log(err)
             })
           }
+        },
+        toggle: function() {
+            this.isShow = !this.isShow;
         }
       }
     });
